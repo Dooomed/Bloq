@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PostService {
 
-    private static PostDao postDao = new PostDao();
+    private static final PostDao postDao = new PostDao();
     public PostService(){
 
     }
@@ -31,4 +31,5 @@ public class PostService {
     public static Post findPostById(int id){
         return postDao.findById(id);
     }
+
 }

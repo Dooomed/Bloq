@@ -3,46 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>ShowAllPosts</title>
+    <link rel="stylesheet" href="style/allPostsStyle.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="style/headerStyle.css">-->
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/homepage">
-            <img src="../img/logoBloq.png" width="40" height="40" alt="Picture" loading="lazy">
-        </a>
-    </nav>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/allPosts">All Posts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/newPost">New Post</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<header th:insert="header :: header"></header>
 <br>
-<div class="container">
+<div class="container" id="container">
     <form th:each="post : ${postList}">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" id="card-body" name="card-body">
                 <form method="post">
                     <h1 th:text="${post.title}" class="card-title"></h1>
                     <p th:text="${post.body}" class="card-text"></p>
                     <p th:text="${post.date}" class="card-text"></p>
-                    <p class="card-text">Views: </p>
-                    <p th:text="${post.views}" class="card-text"></p>
+                    <p><b>Views: </b><span th:text="${post.views}" class="card-text"></span></p>
                     <a th:href="'/allPosts/' + ${post.id}" class="card-text">Details</a>
                 </form>
             </div>
         </div>
     </form>
 </div>
+<script src="js/darkMode.js"></script>
 </form>
 </body>
 </html>

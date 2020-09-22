@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Post-edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<br>
+<div class="container">
+    <h1>Write your post</h1>
+    <br>
+    <form method="post">
+        <input type="text" th:value="${post.title}" name="title" class="form-control input-lh"/>
+        <br>
+        <textarea name="body" th:value="${post.title}" class="form-control input-lg" th:text="${post.body}"></textarea>
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <script src="js/darkMode.js"></script>
+</div>
+</body>
+</html>

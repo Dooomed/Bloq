@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String title;
@@ -61,9 +61,10 @@ public class Post {
         return views;
     }
 
-    public void setViews(int views) {
-        this.views = views;
+    public void incrementViews(){
+        this.views += 1;
     }
+
 
     public Post(String title, String body, String date){
         this.body = body;
